@@ -1,0 +1,16 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+.section_main .grid{
+    display: grid;
+    width: 100vw;
+    height: 100vh;
+
+}
+.section_main .grid div{
+    color: rgb(255, 208, 208);
+    width: 100%;
+    height: 100%;
+}
