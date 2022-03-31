@@ -56,13 +56,35 @@
     </div>
     <section class="section_1">
         <div class="pos">
-            <div class="pos-cart"></div>
-            <div class="pos-menus">
-                <button class="pos-menu-item pos-menu-group">커피</button>
-                <button class="pos-menu-item pos-menu-group">음료</button>
-                <button class="pos-menu-item pos-menu-group">빵</button>
-                
+            <div class="pos-cart">
+                <table></table>
             </div>
+            <div class="pos-menus">
+                <div class="pos-menu-categories">
+                    <span data-tab-target="#coffee" class="pos-menu-category">커피</span>
+                    <span data-tab-target="#drinks" class="pos-menu-category">음료</span>
+                    <span data-tab-target="#" class="pos-menu-category">빵</span>
+                    <span data-tab-target="#" class="pos-menu-category">디져트</span>
+                    <span data-tab-target="#" class="pos-menu-category">추가</span>
+                </div>
+                <div class="pos-menu">
+                    <div id="coffee" class="pos-menu-content active"data-tab-content>
+                        <span id="menu-1"class="pos-menu-item"><h1>아메리카노 먹어보고싶은 나의 욕심</h1><p>1000</p></span>
+                        <span class="pos-menu-item"><h1>카페라떼</h1><p>1000</p></span>
+                        <span class="pos-menu-item"><h1>아메리카노 먹어보고싶은 나의 욕심</h1><p>1000</p></span>
+                        <span class="pos-menu-item"><h1>아메리카노 먹어보고싶은 나의 욕심</h1><p>1000</p></span>
+                        <span class="pos-menu-item"><h1>아메리카노 먹어보고싶은 나의 욕심</h1><p>1000</p></span>
+                    </div>
+                    <div id="drinks" class="pos-menu-content"data-tab-content>
+                        <span class="pos-menu-item"><h1>음료</h1><p>1000</p></span>
+                        <span class="pos-menu-item"><h1>모히또</h1><p>1000</p></span>
+                        <span class="pos-menu-item"><h1>아메리카노 먹어보고싶은 나의 욕심</h1><p>1000</p></span>
+                        <span class="pos-menu-item"><h1>아메리카노 먹어보고싶은 나의 욕심</h1><p>1000</p></span>
+                        <span class="pos-menu-item"><h1>아메리카노 먹어보고싶은 나의 욕심</h1><p>1000</p></span>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
 </div>
@@ -76,7 +98,28 @@ sidebarBtn.addEventListener("click", ()=>{
     topNav.classList.toggle("close")
     
 });
-    </script>
+
+const tabs = document.querySelectorAll('[data-tab-target]');
+const tabContents = document.querySelectorAll('[data-tab-content]');
+const idTabContent = document.getElementById('tab_contents');
+
+tabs.forEach(tab => {
+    tab.addEventListener('click',() => {
+        tabs.forEach(t => {
+            t.classList.remove('active');
+        });
+        tab.classList.add('active');
+
+        const target = document.querySelector(tab.dataset.tabTarget)
+        tabContents.forEach(tabContent => {
+            tabContent.classList.remove('active');
+            
+        });
+        target.classList.add('active')
+
+    })
+});
+</script>
 </body>
 </html>
   

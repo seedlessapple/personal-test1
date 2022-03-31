@@ -10,7 +10,7 @@ body{
     --primary-color:  #ffffff;
     --panel-color:  #ececec;
     --text-color:  rgb(34, 34, 34);
-    --black-light-color:  #CCC;
+    --hover-color:  #CCC;
     --border-color:  #4D4C4C;
 }
 body.dark{
@@ -213,8 +213,7 @@ body.dark{
 }
 
 
-.section_1{
-    background-color: aquamarine;
+.section_1{ 
     height: calc(100vh - 60px);
 }
 .section_1 .pos{
@@ -227,20 +226,71 @@ body.dark{
     background-color: yellow;
 }
 .section_1 .pos .pos-menus{
-    flex: .6 1 0;
-    height: 100%;
-    display: grid;
-    grid-template-columns: repeat(5,1fr);
-    grid-template-rows: repeat(7,1fr);
-    grid-gap: 5px;
+  height: 100%;
+  flex: .6 1 0;
 
-    background-color: rgb(255, 255, 255);
+  display: grid;
+  grid-template-columns: repeat(5,1fr);
+  grid-template-rows: .5fr repeat(6,1fr);
+  grid-gap: 5px;
 }
+.section_1 .pos .pos-menus span{
+  cursor: pointer;
 
-.section_1 .pos .pos-menus .pos-menu-item{
+}
+.section_1 .pos .pos-menu-categories{
+  grid-column: 1 / 6;
+  display: grid;
+  grid-template-columns: repeat(5,1fr);
+  /* grid-gap: 5px; */
+}
+.section_1 .pos .pos-menu{
+  grid-column: 1 / 6;
+  grid-row: 2 / 8;
+}
+.section_1 .pos .pos-menu-categories .pos-menu-category{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
     background-color: var(--panel-color);
     border: var(--border-color);
 }
-.section_1 .pos .pos-menus .pos-menu-item:hover{
-    background-color: var(--panel-color);
+.section_1 .pos .pos-menu-categories .pos-menu-category:hover{
+    background-color: var(--hover-color);
+}
+
+.section_1 .pos .pos-menu .pos-menu-content{
+  height: 100%;
+  grid-template-columns: repeat(5,1fr);
+  grid-template-rows: repeat(6,1fr);
+  grid-gap: 5px;
+  display: none;
+}
+.section_1 .pos .pos-menu .pos-menu-content.active{
+  display: grid;
+}
+.section_1 .pos .pos-menu .pos-menu-item{
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: space-between;
+  vertical-align: middle;
+  background-color: var(--panel-color);
+  border: var(--border-color);
+}
+
+.section_1 .pos .pos-menu .pos-menu-item:hover{
+  background-color: var(--hover-color);
+}
+.section_1 .pos .pos-menu .pos-menu-item h1{
+  margin: 5px 5px;
+  font-size: 14px;
+  text-align: center;
+}
+.section_1 .pos .pos-menu .pos-menu-item p{
+  margin-bottom: 5px;
+  font-weight: 600;
+  color: coral;
 }
