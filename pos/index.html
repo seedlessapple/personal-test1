@@ -57,7 +57,41 @@
     <section class="section_1">
         <div class="pos">
             <div class="pos-cart">
-                <table></table>
+                <table id="cartTable">
+                    <tr class="header">
+                        <th style="width: 50%;">메뉴</th>
+                        <th style="width: 10%;">수량</th>
+                        <th style="width: 20%;">금액</th>
+                        <th styles="width: 20%;">취소</th>
+                    </tr>
+                    <tr>
+                        <th>카페라asdasdas asd떼</th>
+                        <th>1</th>
+                        <th>1000</th>
+                        <th>선택</th>
+                    </tr>
+                    <tr>
+                        <th>카페라떼</th>
+                        <th>1</th>
+                        <th>1000</th>
+                        <th>선택</th>
+                    </tr><tr>
+                        <th>카페라떼</th>
+                        <th>1</th>
+                        <th>1000</th>
+                        <th>선택</th>
+                    </tr><tr>
+                        <th>카페라떼</th>
+                        <th>1</th>
+                        <th>1000</th>
+                        <th>선택</th>
+                    </tr><tr>
+                        <th>카페라떼</th>
+                        <th>1</th>
+                        <th>1000</th>
+                        <th>선택</th>
+                    </tr>
+                </table>
             </div>
             <div class="pos-menus">
                 <div class="pos-menu-categories">
@@ -69,14 +103,14 @@
                 </div>
                 <div class="pos-menu">
                     <div id="coffee" class="pos-menu-content active"data-tab-content>
-                        <span id="menu-1"class="pos-menu-item"><h1>아메리카노 먹어보고싶은 나의 욕심</h1><p>1000</p></span>
-                        <span class="pos-menu-item"><h1>카페라떼</h1><p>1000</p></span>
+                        <span data-menu-index="#11" class="pos-menu-item"><h1>아메리카노 먹어보고싶은 나의 욕심</h1><p>1000</p></span>
+                        <span data-menu-index="#12" class="pos-menu-item"><h1>카페라떼</h1><p>1000</p></span>
                         <span class="pos-menu-item"><h1>아메리카노 먹어보고싶은 나의 욕심</h1><p>1000</p></span>
                         <span class="pos-menu-item"><h1>아메리카노 먹어보고싶은 나의 욕심</h1><p>1000</p></span>
                         <span class="pos-menu-item"><h1>아메리카노 먹어보고싶은 나의 욕심</h1><p>1000</p></span>
                     </div>
                     <div id="drinks" class="pos-menu-content"data-tab-content>
-                        <span class="pos-menu-item"><h1>음료</h1><p>1000</p></span>
+                        <span data-menu-index="#21" class="pos-menu-item"><h1>음료</h1><p>1000</p></span>
                         <span class="pos-menu-item"><h1>모히또</h1><p>1000</p></span>
                         <span class="pos-menu-item"><h1>아메리카노 먹어보고싶은 나의 욕심</h1><p>1000</p></span>
                         <span class="pos-menu-item"><h1>아메리카노 먹어보고싶은 나의 욕심</h1><p>1000</p></span>
@@ -89,10 +123,13 @@
     </section>
 </div>
 <script>
+let cartArr = [];
+
+
+
 let sidebar = document.querySelector(".sidebar");
 let topNav = document.querySelector(".top-nav-logo");
 let sidebarBtn = document.querySelector(".bx-menu");
-console.log(sidebarBtn);
 sidebarBtn.addEventListener("click", ()=>{
     sidebar.classList.toggle("close");
     topNav.classList.toggle("close")
@@ -119,6 +156,20 @@ tabs.forEach(tab => {
 
     })
 });
+
+const menus = document.querySelectorAll('[data-menu-index]');
+menus.forEach(menu =>{
+    menu.addEventListener('click',() => {
+        console.log(menu.dataset.menuIndex);
+        cartArr.push(menu.dataset.menuIndex)
+        console.log(cartArr)
+
+    })
+
+});
+
+
+
 </script>
 </body>
 </html>

@@ -223,8 +223,23 @@ body.dark{
 .section_1 .pos .pos-cart{
     flex: .4 1 0;
     height: 100%;
-    background-color: yellow;
 }
+#cartTable{
+  border-collapse: collapse; /* Collapse borders */
+  width: 100%;
+  font-size: 18px;
+}
+  
+#cartTable th, #cartTable td {
+  text-align: left; 
+  padding: 12px;
+  font-weight: 400;
+}
+.section_1 .pos .pos-cart table .header{
+  font-weight: 500;
+  font-size: 18px;
+}
+/*gg333333333333333333333333333333333333333333333*/
 .section_1 .pos .pos-menus{
   height: 100%;
   flex: .6 1 0;
